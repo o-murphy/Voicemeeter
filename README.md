@@ -35,15 +35,29 @@ This document provides instructions for routing audio devices on a Windows PC. I
       - [Essential Windows System Settings](#essential-windows-system-settings)
         - [Set your Output Device (Playback):](#set-your-output-device-playback)
         - [Set your Input Device (Recording):](#set-your-input-device-recording)
-      - [Setting Up Your Default Hardware Output (A1)](#setting-up-your-default-hardware-output-a1)
+      - [Setting Up Your Default Hardware Output (`A1`)](#setting-up-your-default-hardware-output-a1)
       - [Setting Up Your Hardware Inputs](#setting-up-your-hardware-inputs)
       - [Simple direct routing](#simple-direct-routing)
+        - [For your Microphone and Guitar](#for-your-microphone-and-guitar)
+        - [For System Sounds](#for-system-sounds)
+      - [Final Check](#final-check)
       - [Optimizing Buffering and Sample Rate](#optimizing-buffering-and-sample-rate)
-      - [Here we go!](#here-we-go)
-      - [Route through DAW / VSTs](#route-through-daw--vsts)
+      - [Here we go! Verifying Your Basic Setup](#here-we-go-verifying-your-basic-setup)
   - [Configuring Your Video Chat App](#configuring-your-video-chat-app)
   - [Advanced Routing Schemas](#advanced-routing-schemas)
+    - [Understanding the **`Voicemeeter Virtual Input ASIO`** driver](#understanding-the-voicemeeter-virtual-input-asio-driver)
+      - [What it is](#what-it-is)
+        - [What it's for](#what-its-for)
+    - [Routing through a DAW / VSTs](#routing-through-a-daw--vsts)
+      - [Why We Use It](#why-we-use-it)
+      - [Enabling Voicemeeter Virtual Input ASIO](#enabling-voicemeeter-virtual-input-asio)
+      - [Enabling Voicemeeter Virtual Insert Return](#enabling-voicemeeter-virtual-insert-return)
     - [Low-end interfaces routing schema](#low-end-interfaces-routing-schema)
+      - [Routing Overview](#routing-overview)
+        - [Hardware Input](#hardware-input)
+        - [Processing with DAW/VSTs](#processing-with-dawvsts)
+        - [Return Path](#return-path)
+        - [Final Mix and Output](#final-mix-and-output)
     - [Hi-end interfaces routing schema](#hi-end-interfaces-routing-schema)
     - [Multiple audio interfaces schema](#multiple-audio-interfaces-schema)
 
@@ -179,12 +193,12 @@ These are designed to send your audio to physical devices connected to your comp
 ##### B Buses (Virtual Outs)
 These are designed to send your mixed audio signal back into the system for other applications (video chats, recording software, etc.) to use.
 
-* **B1** - The primary virtual bus. This channel is typically used as the "virtual microphone" in apps like Discord, Zoom, and OBS. Everything you send to the B1 bus will be heard in those applications.
+* **B1** - The primary virtual bus. This channel is typically used as the "virtual microphone" in apps like Discord, Zoom, and OBS. Everything you send to the `B1` bus will be heard in those applications.
 * **B2** - The second virtual bus, which can be used for an additional audio stream, such as a separate track for recording software or a dedicated stream for a specific application.
 * **B3** - The third virtual bus.
 
 > [!Note]
-> Every channel in your Voicemeeter mixer has buttons for A1-A5 and B1-B3. By clicking these, you decide where to route the audio from that specific channel. For example, if you enable A1 on your guitar channel, you'll hear it in your headphones. If you enable B1, it will be heard in your video chat.
+> Every channel in your Voicemeeter mixer has buttons for `A1-A5` and `B1-B3`. By clicking these, you decide where to route the audio from that specific channel. For example, if you enable `A1` on your guitar channel, you'll hear it in your headphones. If you enable `B1`, it will be heard in your video chat.
 
 
 #### The general purpose schema of Voicemeeter Potato I/O
@@ -209,18 +223,18 @@ Why? This tells your system to send all audio from your web browser, games, syst
 
     ![VoicemeeterSystemIn](./assets/images/VoicemeeterSystemIn.png)
 
-Why? This device corresponds to the main virtual bus, `B1`, in `Voicemeeter`. When you choose this as your microphone in a video chat app like Discord or Zoom, that application will receive the entire audio mix you send to the B1 bus—which could be your microphone, your guitar, and any other sounds you've routed there.
+Why? This device corresponds to the main virtual bus, `B1`, in `Voicemeeter`. When you choose this as your microphone in a video chat app like Discord or Zoom, that application will receive the entire audio mix you send to the `B1` bus—which could be your microphone, your guitar, and any other sounds you've routed there.
 
 
-#### Setting Up Your Default Hardware Output (A1)
+#### Setting Up Your Default Hardware Output (`A1`)
 Now that you've routed all your system audio into Voicemeeter, you need to route it back out to your physical speakers or headphones so you can hear it.
 
-* **Select a Hardware Output:** In the top right section of the Voicemeeter interface, you'll see a panel labeled "Hardware Out". Click on the button for A1.
+* **Select a Hardware Output:** In the top right section of the Voicemeeter interface, you'll see a panel labeled "Hardware Out". Click on the button for `A1`.
 * **Choose Your Device:** From the dropdown menu that appears, select your preferred listening device. This is typically your headphones, studio monitors, or a physical output on your audio interface (e.g., your Behringer, Scarlett 2i2 or similar).
 
-![There should be image soon...]()
+    ![There should be image soon...]()
 
-By completing this step, any audio you send to the A1 bus in Voicemeeter will be routed to your selected hardware device, allowing you to hear your instruments, microphone, and other system sounds.
+By completing this step, any audio you send to the `A1` bus in Voicemeeter will be routed to your selected hardware device, allowing you to hear your instruments, microphone, and other system sounds.
 
 
 #### Setting Up Your Hardware Inputs
@@ -228,24 +242,44 @@ Voicemeeter can accept audio from up to five separate hardware devices. This is 
 
 * **Locate the Hardware Input Strips:** On the far left of the Voicemeeter interface, you'll see a series of vertical channel strips labeled Stereo Input 1, Stereo Input 2, and so on.
 
-![There should be image soon...]()
+    ![There should be image soon...]()
 
 * **Select Your First Device:** Click the button labeled Select Input Device at the top of the first channel strip you want to use.
   
-![There should be image soon...]()
+    ![There should be image soon...]()
 
 * **Choose Your Audio Interface:** From the dropdown menu, select your audio interface. It's best to choose the ASIO driver for your device if available, as it provides the lowest latency.
 
-![There should be image soon...]()
+    ![There should be image soon...]()
 
 * **Add More Devices:** If you have multiple devices—for example, a separate USB microphone or a MIDI controller with audio input—repeat the process for the other Hardware Input strips.
 
-![There should be image soon...]()
+    ![There should be image soon...]()
 
 By doing this, you're telling Voicemeeter to listen to your physical devices. You can now use the faders and buttons on these channels to mix and route the audio from your guitar and microphone to the output buses.
 
 #### Simple direct routing
-Soon...
+
+Once your inputs and outputs are selected, routing audio is done with just a few clicks. The goal is to send your sounds to the correct output buses: `A1` (so you can hear them) and `B1` (so your audience can hear them).
+
+The simple routing schema which, explanation you can find below.
+
+![SimpleRouting](./assets/images/SimpleRouting.drawio.svg)
+
+##### For your Microphone and Guitar
+* Locate the channels corresponding to your microphone and guitar in the Hardware Input section.
+* For each channel, click the `A1` button. This sends your sound to the `A1` output, allowing you to monitor yourself through your headphones.
+* Next, click the `B1` button on each channel. This sends your sound to the `B1` output, which will be picked up by your video chat application.
+
+##### For System Sounds
+* Find the Voicemeeter VAIO channel in the Virtual Inputs section.
+* Click the `A1` button. This sends all your system sounds (browser audio, game sounds, etc.) to your headphones, so you can hear them.
+* If you want others in your video chat to hear your system sounds, you can also click the `B1` button on this channel.
+
+#### Final Check
+* Make sure you can see a signal on the fader for your microphone and guitar.
+* Confirm that the `A1` and `B1` buttons are lit up on the channels you want to route.
+* This simple setup routes all essential audio sources to both you (via `A1`) and your audience (via `B1`), creating a complete and balanced mix.
 
 #### Optimizing Buffering and Sample Rate
 > [!Important]
@@ -262,11 +296,19 @@ Soon...
 > [!NOTE]
 > You can experiment with lowering the buffer size to 160 or even less if needed. However, very low buffering can cause audio artifacts (crackling, dropouts) if your CPU cannot process the audio fast enough. The optimal value depends on your computer's performance.
 
-#### Here we go!
-On this step we should be able to hear system sounds, our Mic, Guitar, etc. in our Headphones or Sound monitors as same as use Voicemeeter Input/Output in other applications. If you don't need an advance resolving, applying effects or route through DAW/VSTs   
+#### Here we go! Verifying Your Basic Setup
 
-#### Route through DAW / VSTs
-Soon...
+You're all set! At this point, your core setup should be complete. You can now test your audio to confirm that everything is working as expected.
+
+* You should be able to hear the following through your headphones or monitors:
+* All system sounds (from your browser, video chat app, games, etc.)
+* Your microphone
+* Your guitar
+* You should also be able to use Voicemeeter Output as your microphone in other applications (like Discord or Zoom).
+
+If you don't require advanced audio routing through a DAW or VST plugins, your setup is now complete.
+You can to go to the [Configuring your video chat app](#configuring-your-video-chat-app) section.
+
 
 ## Configuring Your Video Chat App
 
@@ -279,11 +321,75 @@ Soon...
 
 ## Advanced Routing Schemas
 
+### Understanding the **`Voicemeeter Virtual Input ASIO`** driver
+
+The Voicemeeter Virtual Input ASIO driver is a key feature of the Voicemeeter Potato version. It creates a dedicated, low-latency audio connection between your Voicemeeter mixer and other professional audio software.
+
+#### What it is
+A specialized virtual input that functions using the ASIO protocol. Unlike standard WDM drivers, ASIO is designed for professional audio applications and minimizes the delay (latency) between the moment a sound is created and the moment it is processed.
+
+##### What it's for
+This driver is essential for integrating a Digital Audio Workstation (DAW) or standalone VST plugins (like Guitar Rig or Bias FX) into your Voicemeeter setup. By selecting this driver within your DAW, you can send your audio (e.g., your guitar signal) through effects software and then back into Voicemeeter, all with minimal latency.
+
+In short, it's the bridge that allows you to use your favorite effects software and professional audio tools in real-time within your Voicemeeter workflow.
+
+
+### Routing through a DAW / VSTs
+
+#### Why We Use It
+
+Routing your audio through a Digital Audio Workstation (DAW) or a VST host is the key to achieving professional-quality sound for your instrument. This process allows you to add powerful effects like distortion, cabinet emulation, reverb, and EQ to your guitar or microphone in real time. This is what makes a simple home setup sound like a professional studio, which is perfect for online lessons, streaming, and recording.
+
+#### Enabling Voicemeeter Virtual Input ASIO
+To send your audio into a DAW or VST host, you need to use the specialized **`Voicemeeter Virtual Input ASIO`** driver. This driver provides the low-latency connection required for real-time processing.
+
+* Open your DAW (e.g., Ableton, FL Studio) or your VST host application (e.g., Guitar Rig, Bias FX).
+* Go to the Audio Settings or Preferences menu.
+* Under the Input Device or Driver settings, select **`Voicemeeter Virtual Input ASIO`**. This tells your software to receive its audio from Voicemeeter.
+* Within your software, ensure that your instrument channel's input is set to receive audio from the Left or Right channel of the **`Voicemeeter Virtual Input ASIO`** driver.
+
+![There should be image soon...]()
+
+#### Enabling Voicemeeter Virtual Insert Return
+Once your audio is processed with effects in the DAW or VST host, you need to send it back to Voicemeeter for the final mix.
+
+* In your DAW or VST host, go back to the Audio Settings.
+
+* Set the Output Device or Driver to `Voicemeeter VAIO` or another virtual input you wish to use.
+
+Your processed audio will now appear on the corresponding Virtual Input channel in your Voicemeeter mixer. You can now mix this new, processed signal with your other audio sources and route it to your headphones (`A1`) and video chat (`B1`).
+
+![There should be image soon...]()
+
 ### Low-end interfaces routing schema
-Soon...
+This diagram illustrates a detailed audio routing setup for low-end audio interfaces that combine two physical mono inputs (e.g., a microphone and a guitar) into a single stereo channel. This configuration is essential for musicians who need to process their instruments with effects in real-time.
+
+![LowEndSchema](./assets/images/LowEndSchema.drawio.svg)
+
+#### Routing Overview
+
+##### Hardware Input
+The audio from your microphone and guitar is captured by the interface and sent to your PC as a single stereo input. This input is then assigned to a Hardware Input channel in Voicemeeter.
+
+##### Processing with DAW/VSTs
+To add effects, the audio is routed from Voicemeeter to a DAW or VST host (like Guitar Rig). This is a crucial step that uses the Voicemeeter Virtual Input ASIO driver to ensure a low-latency connection.
+
+##### Return Path
+The processed audio, now complete with effects (e.g., distortion, reverb), is sent back from the DAW/VST to a Virtual Input channel in Voicemeeter.
+
+##### Final Mix and Output
+Once the processed audio is back in Voicemeeter, it is routed to two main output buses:
+
+* **A1 (Hardware Out):** This bus sends the final mix to your physical headphones or monitors, allowing you to hear yourself and all system sounds.
+
+* **B1 (Virtual Out):** This bus sends the final mix to your video chat application (Google Meet, Zoom, etc.), allowing your audience to hear your processed sound.
+
+This complete schema shows how to bypass the limitations of a simple audio interface to achieve professional-grade, low-latency audio processing for online lessons, streaming, and recording.
+
 
 ### Hi-end interfaces routing schema
 Soon...
+
 
 ### Multiple audio interfaces schema
 Soon...
