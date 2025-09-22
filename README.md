@@ -53,12 +53,17 @@ This document provides instructions for routing audio devices on a Windows PC. I
       - [Enabling Voicemeeter Virtual Input ASIO](#enabling-voicemeeter-virtual-input-asio)
       - [Enabling Voicemeeter Virtual Insert Return](#enabling-voicemeeter-virtual-insert-return)
     - [Low-end interfaces routing schema](#low-end-interfaces-routing-schema)
-      - [Routing Overview](#routing-overview)
-        - [Hardware Input](#hardware-input)
-        - [Processing with DAW/VSTs](#processing-with-dawvsts)
-        - [Return Path](#return-path)
-        - [Final Mix and Output](#final-mix-and-output)
+    - [Routing Overview](#routing-overview)
+      - [Hardware Input](#hardware-input)
+      - [Processing with DAW/VSTs](#processing-with-dawvsts)
+      - [Return Path](#return-path)
+      - [Final Mix and Output](#final-mix-and-output)
     - [Hi-end interfaces routing schema](#hi-end-interfaces-routing-schema)
+      - [Routing Overview](#routing-overview-1)
+      - [Hardware Input](#hardware-input-1)
+      - [Processing with DAW/VSTs](#processing-with-dawvsts-1)
+      - [Return Path](#return-path-1)
+      - [Final Mix and Output](#final-mix-and-output-1)
     - [Multiple audio interfaces schema](#multiple-audio-interfaces-schema)
 
 
@@ -366,18 +371,18 @@ This diagram illustrates a detailed audio routing setup for low-end audio interf
 
 ![LowEndRouting](./assets/images/LowEndRouting.drawio.svg)
 
-#### Routing Overview
+### Routing Overview
 
-##### Hardware Input
+#### Hardware Input
 The audio from your microphone and guitar is captured by the interface and sent to your PC as a single stereo input. This input is then assigned to a Hardware Input channel in Voicemeeter.
 
-##### Processing with DAW/VSTs
+#### Processing with DAW/VSTs
 To add effects, the audio is routed from Voicemeeter to a DAW or VST host (like Guitar Rig). This is a crucial step that uses the Voicemeeter Virtual Input ASIO driver to ensure a low-latency connection.
 
-##### Return Path
+#### Return Path
 The processed audio, now complete with effects (e.g., distortion, reverb), is sent back from the DAW/VST to a Virtual Input channel in Voicemeeter.
 
-##### Final Mix and Output
+#### Final Mix and Output
 Once the processed audio is back in Voicemeeter, it is routed to two main output buses:
 
 * **A1 (Hardware Out):** This bus sends the final mix to your physical headphones or monitors, allowing you to hear yourself and all system sounds.
@@ -391,6 +396,36 @@ This complete schema shows how to bypass the limitations of a simple audio inter
 
 ![HiEndRouting](./assets/images/HiEndRouting.drawio.svg)
 
+#### Routing Overview
+The diagram illustrates a comprehensive audio signal flow, starting from hardware inputs, routing through a Digital Audio Workstation (DAW) and Virtual Studio Technology (VST) plugins for processing, and finally outputting to headphones or monitors. The key feature is the use of two separate stereo hardware inputs, allowing for simultaneous recording of multiple stereo sources like synthesizers, and then processing them independently within the DAW.
+
+#### Hardware Input
+The setup begins with two separate stereo inputs into an audio interface, such as the Focusrite Scarlett 4i4. The diagram labels these as "Hardware Stereo Input 1 (L/R)" and "Hardware Stereo Input 2 (L/R)."
+
+* **Input 1:** A stereo signal from a source like a hardware synthesizer is connected to this input pair.
+* **Input 2:** Another stereo source, perhaps a drum machine or a second synthesizer, is connected here.
+The audio interface sends these two distinct stereo signals to the DAW, where they are received on two separate stereo channels, labeled "Hardware Input 1" and "Hardware Input 2."
+
+#### Processing with DAW/VSTs
+Once inside the DAW, the signals are processed independently. The diagram shows the signal from each hardware input being sent to a dedicated mixer channel within the DAW.
+
+* **Mixer Channel 1:** The signal from Hardware Input 1 is routed here. It's then processed with a chain of VST plugins, including EQ, compressor, and reverb. The diagram also shows a "Voicemaster" plugin, suggesting vocal-specific processing, which could be an emulation or a different type of channel strip. The processed audio is then sent to a "Voicemaster path Left/Right."
+
+* **Mixer Channel 2:** The signal from Hardware Input 2 is routed here and processed with a different set of VST plugins, including EQ, compressor, and a "Cabinet simulation," indicating that this channel is likely for a guitar or bass signal. This processed audio is also sent to a "Voicemaster path Left/Right."
+The use of two separate channels and independent plugin chains allows for granular control and specific sound design for each source. The diagram also shows the output of the DAW being routed to a Google Meet/Zoom call, indicating this setup can be used for streaming or online collaboration.
+
+#### Return Path
+The processed audio from the DAW needs to be sent back to the user to be heard. This is where the return path comes in. The "Final Mix" from the DAW's main output is sent back to the audio interface. The diagram labels this as "Hardware Stereo Output (L/R)."
+
+#### Final Mix and Output
+The final mix, now with all the processing applied, is sent from the DAW to the audio interface. The audio interface then routes this signal to the final listening devices:
+
+* **Headphones:** The processed audio is sent to the headphone jack on the audio interface.
+
+* **Monitors:** The signal is also sent to studio monitors for a wider listening perspective.
+This configuration is ideal for low-latency monitoring, as the processed audio is routed directly back to the headphones and monitors from the audio interface, bypassing any software-level monitoring that could introduce delay. This is a common setup for professional music production and live streaming where minimal latency is critical.
+
+This complete schema shows how to setup Voicemeeter and DAW to achieve professional-grade, low-latency audio processing for online lessons, streaming, and recording.
 
 ### Multiple audio interfaces schema
 Soon...
