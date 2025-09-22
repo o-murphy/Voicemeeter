@@ -1,5 +1,6 @@
 # Guide to Routing Audio for Musicians
 
+[<img src="https://flagicons.lipis.dev/flags/4x3/ua.svg" width="20"/> **Українською**](./README.ua.md)
 
 ## Introduction
 
