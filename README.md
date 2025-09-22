@@ -48,20 +48,20 @@ This document provides instructions for routing audio devices on a Windows PC. I
     - [Understanding the **`Voicemeeter Virtual Input ASIO`** driver](#understanding-the-voicemeeter-virtual-input-asio-driver)
       - [What it is](#what-it-is)
         - [What it's for](#what-its-for)
-    - [Routing through a DAW / VSTs](#routing-through-a-daw--vsts)
+    - [Routing through a `DAW` / `VSTs`](#routing-through-a-daw--vsts)
       - [Why We Use It](#why-we-use-it)
       - [Enabling Voicemeeter Virtual Input ASIO](#enabling-voicemeeter-virtual-input-asio)
       - [Enabling Voicemeeter Virtual Insert Return](#enabling-voicemeeter-virtual-insert-return)
     - [Low-end interfaces routing schema](#low-end-interfaces-routing-schema)
-    - [Routing Overview](#routing-overview)
+      - [Routing Overview](#routing-overview)
       - [Hardware Input](#hardware-input)
-      - [Processing with DAW/VSTs](#processing-with-dawvsts)
+      - [Processing with `DAW` / `VSTs`](#processing-with-daw--vsts)
       - [Return Path](#return-path)
       - [Final Mix and Output](#final-mix-and-output)
     - [Hi-end interfaces routing schema](#hi-end-interfaces-routing-schema)
       - [Routing Overview](#routing-overview-1)
       - [Hardware Input](#hardware-input-1)
-      - [Processing with DAW/VSTs](#processing-with-dawvsts-1)
+      - [Processing with `DAW` / `VSTs`](#processing-with-daw--vsts-1)
       - [Return Path](#return-path-1)
       - [Final Mix and Output](#final-mix-and-output-1)
     - [Multiple audio interfaces schema](#multiple-audio-interfaces-schema)
@@ -73,7 +73,7 @@ This document provides instructions for routing audio devices on a Windows PC. I
 * **Microphone**
 * **Guitar**
 * [**Voicemeeter Potato:**](#voicemeeter-software) This software routes your audio hardware and virtual I/O devices. Be sure to use the Potato version, as it includes its own `Voicemeeter Virtual Input ASIO` driver. This driver is crucial for routing sound through a `DAW` or software like `Guitar Rig` or `Bias FX`.
-* **DAW / VSTs:** A `DAW` (Digital Audio Workstation) is used to manage your hardware inputs and add effects to your audio channels via the `Voicemeeter Virtual Input ASIO` driver. Depending on your setup, you may be able to use `VST` plugins directly without a full `DAW`.
+* **`DAW` / `VSTs`:** A `DAW` (Digital Audio Workstation) is used to manage your hardware inputs and add effects to your audio channels via the `Voicemeeter Virtual Input ASIO` driver. Depending on your setup, you may be able to use `VST` plugins directly without a full `DAW`.
 * **Video chat application:** Any app that allows you to select an audio device, such as Google Meet, Zoom, Telegram, or Discord.
 
 
@@ -311,7 +311,7 @@ You're all set! At this point, your core setup should be complete. You can now t
 * Your guitar
 * You should also be able to use Voicemeeter Output as your microphone in other applications (like Discord or Zoom).
 
-If you don't require advanced audio routing through a DAW or VST plugins, your setup is now complete.
+If you don't require advanced audio routing through a `DAW` or `VSTs` plugins, your setup is now complete.
 You can to go to the [Configuring your video chat app](#configuring-your-video-chat-app) section.
 
 
@@ -334,21 +334,21 @@ The Voicemeeter Virtual Input ASIO driver is a key feature of the Voicemeeter Po
 A specialized virtual input that functions using the ASIO protocol. Unlike standard WDM drivers, ASIO is designed for professional audio applications and minimizes the delay (latency) between the moment a sound is created and the moment it is processed.
 
 ##### What it's for
-This driver is essential for integrating a Digital Audio Workstation (DAW) or standalone VST plugins (like Guitar Rig or Bias FX) into your Voicemeeter setup. By selecting this driver within your DAW, you can send your audio (e.g., your guitar signal) through effects software and then back into Voicemeeter, all with minimal latency.
+This driver is essential for integrating a Digital Audio Workstation (`DAW`) or standalone `VST` plugins (like Guitar Rig or Bias FX) into your Voicemeeter setup. By selecting this driver within your `DAW`, you can send your audio (e.g., your guitar signal) through effects software and then back into Voicemeeter, all with minimal latency.
 
 In short, it's the bridge that allows you to use your favorite effects software and professional audio tools in real-time within your Voicemeeter workflow.
 
 
-### Routing through a DAW / VSTs
+### Routing through a `DAW` / `VSTs`
 
 #### Why We Use It
 
-Routing your audio through a Digital Audio Workstation (DAW) or a VST host is the key to achieving professional-quality sound for your instrument. This process allows you to add powerful effects like distortion, cabinet emulation, reverb, and EQ to your guitar or microphone in real time. This is what makes a simple home setup sound like a professional studio, which is perfect for online lessons, streaming, and recording.
+Routing your audio through a Digital Audio Workstation (`DAW`) or a `VST` host is the key to achieving professional-quality sound for your instrument. This process allows you to add powerful effects like distortion, cabinet emulation, reverb, and EQ to your guitar or microphone in real time. This is what makes a simple home setup sound like a professional studio, which is perfect for online lessons, streaming, and recording.
 
 #### Enabling Voicemeeter Virtual Input ASIO
-To send your audio into a DAW or VST host, you need to use the specialized **`Voicemeeter Virtual Input ASIO`** driver. This driver provides the low-latency connection required for real-time processing.
+To send your audio into a `DAW` or `VST` host, you need to use the specialized **`Voicemeeter Virtual Input ASIO`** driver. This driver provides the low-latency connection required for real-time processing.
 
-* Open your DAW (e.g., Ableton, FL Studio) or your VST host application (e.g., Guitar Rig, Bias FX).
+* Open your `DAW` (e.g., `Ableton`, FL `Studio`) or your `VST` host application (e.g., Guitar Rig, Bias FX).
 * Go to the Audio Settings or Preferences menu.
 * Under the Input Device or Driver settings, select **`Voicemeeter Virtual Input ASIO`**. This tells your software to receive its audio from Voicemeeter.
 * Within your software, ensure that your instrument channel's input is set to receive audio from the Left or Right channel of the **`Voicemeeter Virtual Input ASIO`** driver.
@@ -356,9 +356,9 @@ To send your audio into a DAW or VST host, you need to use the specialized **`Vo
 ![There should be image soon...]()
 
 #### Enabling Voicemeeter Virtual Insert Return
-Once your audio is processed with effects in the DAW or VST host, you need to send it back to Voicemeeter for the final mix.
+Once your audio is processed with effects in the `DAW` or `VST` host, you need to send it back to Voicemeeter for the final mix.
 
-* In your DAW or VST host, go back to the Audio Settings.
+* In your `DAW` or `VST` host, go back to the Audio Settings.
 
 * Set the Output Device or Driver to `Voicemeeter VAIO` or another virtual input you wish to use.
 
@@ -371,16 +371,16 @@ This diagram illustrates a detailed audio routing setup for low-end audio interf
 
 ![LowEndRouting](./assets/images/LowEndRouting.drawio.svg)
 
-### Routing Overview
+#### Routing Overview
 
 #### Hardware Input
 The audio from your microphone and guitar is captured by the interface and sent to your PC as a single stereo input. This input is then assigned to a Hardware Input channel in Voicemeeter.
 
-#### Processing with DAW/VSTs
-To add effects, the audio is routed from Voicemeeter to a DAW or VST host (like Guitar Rig). This is a crucial step that uses the Voicemeeter Virtual Input ASIO driver to ensure a low-latency connection.
+#### Processing with `DAW` / `VSTs`
+To add effects, the audio is routed from Voicemeeter to a `DAW` or `VST` host (like Guitar Rig). This is a crucial step that uses the Voicemeeter Virtual Input ASIO driver to ensure a low-latency connection.
 
 #### Return Path
-The processed audio, now complete with effects (e.g., distortion, reverb), is sent back from the DAW/VST to a Virtual Input channel in Voicemeeter.
+The processed audio, now complete with effects (e.g., distortion, reverb), is sent back from the `DAW` / `VST` to a Virtual Input channel in Voicemeeter.
 
 #### Final Mix and Output
 Once the processed audio is back in Voicemeeter, it is routed to two main output buses:
@@ -397,35 +397,35 @@ This complete schema shows how to bypass the limitations of a simple audio inter
 ![HiEndRouting](./assets/images/HiEndRouting.drawio.svg)
 
 #### Routing Overview
-The diagram illustrates a comprehensive audio signal flow, starting from hardware inputs, routing through a Digital Audio Workstation (DAW) and Virtual Studio Technology (VST) plugins for processing, and finally outputting to headphones or monitors. The key feature is the use of two separate stereo hardware inputs, allowing for simultaneous recording of multiple stereo sources like synthesizers, and then processing them independently within the DAW.
+The diagram illustrates a comprehensive audio signal flow, starting from hardware inputs, routing through a Digital Audio Workstation (`DAW`) and Virtual Studio Technology (`VST`) plugins for processing, and finally outputting to headphones or monitors. The key feature is the use of two separate stereo hardware inputs, allowing for simultaneous recording of multiple stereo sources like synthesizers, and then processing them independently within the `DAW`.
 
 #### Hardware Input
 The setup begins with two separate stereo inputs into an audio interface, such as the Focusrite Scarlett 4i4. The diagram labels these as "Hardware Stereo Input 1 (L/R)" and "Hardware Stereo Input 2 (L/R)."
 
 * **Input 1:** A stereo signal from a source like a hardware synthesizer is connected to this input pair.
 * **Input 2:** Another stereo source, perhaps a drum machine or a second synthesizer, is connected here.
-The audio interface sends these two distinct stereo signals to the DAW, where they are received on two separate stereo channels, labeled "Hardware Input 1" and "Hardware Input 2."
+The audio interface sends these two distinct stereo signals to the `DAW`, where they are received on two separate stereo channels, labeled "Hardware Input 1" and "Hardware Input 2."
 
-#### Processing with DAW/VSTs
-Once inside the DAW, the signals are processed independently. The diagram shows the signal from each hardware input being sent to a dedicated mixer channel within the DAW.
+#### Processing with `DAW` / `VSTs`
+Once inside the `DAW`, the signals are processed independently. The diagram shows the signal from each hardware input being sent to a dedicated mixer channel within the `DAW`.
 
-* **Mixer Channel 1:** The signal from Hardware Input 1 is routed here. It's then processed with a chain of VST plugins, including EQ, compressor, and reverb. The diagram also shows a "Voicemaster" plugin, suggesting vocal-specific processing, which could be an emulation or a different type of channel strip. The processed audio is then sent to a "Voicemaster path Left/Right."
+* **Mixer Channel 1:** The signal from Hardware Input 1 is routed here. It's then processed with a chain of `VST` plugins, including EQ, compressor, and reverb. The diagram also shows a `Voicemeeter` plugin, suggesting vocal-specific processing, which could be an emulation or a different type of channel strip. The processed audio is then sent to a "Voicemeeter path Left/Right."
 
-* **Mixer Channel 2:** The signal from Hardware Input 2 is routed here and processed with a different set of VST plugins, including EQ, compressor, and a "Cabinet simulation," indicating that this channel is likely for a guitar or bass signal. This processed audio is also sent to a "Voicemaster path Left/Right."
-The use of two separate channels and independent plugin chains allows for granular control and specific sound design for each source. The diagram also shows the output of the DAW being routed to a Google Meet/Zoom call, indicating this setup can be used for streaming or online collaboration.
+* **Mixer Channel 2:** The signal from Hardware Input 2 is routed here and processed with a different set of VST plugins, including EQ, compressor, and a "Cabinet simulation," indicating that this channel is likely for a guitar or bass signal. This processed audio is also sent to a "Voicemeeter path Left/Right."
+The use of two separate channels and independent plugin chains allows for granular control and specific sound design for each source. The diagram also shows the output of the `DAW` being routed to a Google Meet/Zoom call, indicating this setup can be used for streaming or online collaboration.
 
 #### Return Path
-The processed audio from the DAW needs to be sent back to the user to be heard. This is where the return path comes in. The "Final Mix" from the DAW's main output is sent back to the audio interface. The diagram labels this as "Hardware Stereo Output (L/R)."
+The processed audio from the `DAW` needs to be sent back to the user to be heard. This is where the return path comes in. The "Final Mix" from the DAW's main output is sent back to the audio interface. The diagram labels this as "Hardware Stereo Output (L/R)."
 
 #### Final Mix and Output
-The final mix, now with all the processing applied, is sent from the DAW to the audio interface. The audio interface then routes this signal to the final listening devices:
+The final mix, now with all the processing applied, is sent from the `DAW` to the audio interface. The audio interface then routes this signal to the final listening devices:
 
 * **Headphones:** The processed audio is sent to the headphone jack on the audio interface.
 
 * **Monitors:** The signal is also sent to studio monitors for a wider listening perspective.
 This configuration is ideal for low-latency monitoring, as the processed audio is routed directly back to the headphones and monitors from the audio interface, bypassing any software-level monitoring that could introduce delay. This is a common setup for professional music production and live streaming where minimal latency is critical.
 
-This complete schema shows how to setup Voicemeeter and DAW to achieve professional-grade, low-latency audio processing for online lessons, streaming, and recording.
+This complete schema shows how to setup Voicemeeter and `DAW` to achieve professional-grade, low-latency audio processing for online lessons, streaming, and recording.
 
 ### Multiple audio interfaces schema
 Soon...
