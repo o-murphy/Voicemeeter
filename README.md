@@ -359,12 +359,12 @@ Once your audio is processed with effects in the DAW or VST host, you need to se
 
 Your processed audio will now appear on the corresponding Virtual Input channel in your Voicemeeter mixer. You can now mix this new, processed signal with your other audio sources and route it to your headphones (`A1`) and video chat (`B1`).
 
-![There should be image soon...]()
+![VoicemeeterVirtualInsertReturn](./assets/images/VoicemeeterVirtualInsertReturn.drawio.svg)
 
 ### Low-end interfaces routing schema
 This diagram illustrates a detailed audio routing setup for low-end audio interfaces that combine two physical mono inputs (e.g., a microphone and a guitar) into a single stereo channel. This configuration is essential for musicians who need to process their instruments with effects in real-time.
 
-![LowEndSchema](./assets/images/LowEndSchema.drawio.svg)
+![LowEndRouting](./assets/images/LowEndRouting.drawio.svg)
 
 #### Routing Overview
 
@@ -388,7 +388,8 @@ This complete schema shows how to bypass the limitations of a simple audio inter
 
 
 ### Hi-end interfaces routing schema
-Soon...
+
+![HiEndRouting](./assets/images/HiEndRouting.drawio.svg)
 
 
 ### Multiple audio interfaces schema
