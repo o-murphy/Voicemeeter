@@ -167,7 +167,7 @@ In Voicemeeter Potato, the virtual devices you select in Windows for playback co
 These channels are designed to receive audio from your external hardware connected to your PC (e.g., your audio interface, USB mic, etc.).
 
 ##### Hardware Input 1-5
-You assign these channels to a physical device in the "Select Input Device" menu. For example, you would select your audio interface here to bring in your guitar and mic signals.
+You assign these channels to a physical device in the **`Select Input Device`** menu. For example, you would select your audio interface here to bring in your guitar and mic signals.
 
 ##### Virtual Inputs (Software Applications): 
 These channels are designed to receive audio directly from software on your computer.
@@ -236,6 +236,9 @@ Why? This device corresponds to the main virtual bus, `B1`, in `Voicemeeter`. Wh
 Now that you've routed all your system audio into Voicemeeter, you need to route it back out to your physical speakers or headphones so you can hear it.
 
 * **Select a Hardware Output:** In the top right section of the Voicemeeter interface, you'll see a panel labeled "Hardware Out". Click on the button for `A1`.
+
+    ![VoicemeeterHardwareInputs](./assets/images/VoicemeeterHardwareOutputs.drawio.svg)
+
 * **Choose Your Device:** From the dropdown menu that appears, select your preferred listening device. This is typically your headphones, studio monitors, or a physical output on your audio interface (e.g., your Behringer, Scarlett 2i2 or similar).
 
     ![There should be image soon...]()
@@ -248,11 +251,11 @@ Voicemeeter can accept audio from up to five separate hardware devices. This is 
 
 * **Locate the Hardware Input Strips:** On the far left of the Voicemeeter interface, you'll see a series of vertical channel strips labeled Stereo Input 1, Stereo Input 2, and so on.
 
-    ![There should be image soon...]()
+    <!-- ![There should be image soon...]() -->
 
-* **Select Your First Device:** Click the button labeled Select Input Device at the top of the first channel strip you want to use.
+* **Select Your First Device:** Click the button labeled **`Select Input Device`** at the top of the first channel strip you want to use.
   
-    ![There should be image soon...]()
+    ![VoicemeeterHardwareInputs](./assets/images/VoicemeeterHardwareInputs.drawio.svg)
 
 * **Choose Your Audio Interface:** From the dropdown menu, select your audio interface. It's best to choose the ASIO driver for your device if available, as it provides the lowest latency.
 
@@ -260,7 +263,7 @@ Voicemeeter can accept audio from up to five separate hardware devices. This is 
 
 * **Add More Devices:** If you have multiple devices—for example, a separate USB microphone or a MIDI controller with audio input—repeat the process for the other Hardware Input strips.
 
-    ![There should be image soon...]()
+    <!-- ![There should be image soon...]() -->
 
 By doing this, you're telling Voicemeeter to listen to your physical devices. You can now use the faders and buttons on these channels to mix and route the audio from your guitar and microphone to the output buses.
 
@@ -349,7 +352,7 @@ Routing your audio through a Digital Audio Workstation (`DAW`) or a `VST` host i
 #### Enabling Voicemeeter Virtual Input ASIO
 To send your audio into a `DAW` or `VST` host, you need to use the specialized **`Voicemeeter Virtual Input ASIO`** driver. This driver provides the low-latency connection required for real-time processing.
 
-* Open your `DAW` (e.g., `Ableton`, FL `Studio`) or your `VST` host application (e.g., Guitar Rig, Bias FX).
+* Open your `DAW` (e.g., `Ableton`, `FL Studio`) or your `VST` host application (e.g., Guitar Rig, Bias FX).
 * Go to the Audio Settings or Preferences menu.
 * Under the Input Device or Driver settings, select **`Voicemeeter Virtual Input ASIO`**. This tells your software to receive its audio from Voicemeeter.
 * Within your software, ensure that your instrument channel's input is set to receive audio from the Left or Right channel of the **`Voicemeeter Virtual Input ASIO`** driver.
