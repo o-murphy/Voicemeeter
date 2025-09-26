@@ -371,7 +371,15 @@ To send your audio into a `DAW` or `VST` host, you need to use the specialized *
 * Under the Input Device or Driver settings, select **`Voicemeeter Virtual Input ASIO`**. This tells your software to receive its audio from Voicemeeter.
 * Within your software, ensure that your instrument channel's input is set to receive audio from the Left or Right channel of the **`Voicemeeter Virtual Input ASIO`** driver.
 
-![VoicemeeterASIO](./assets/images/VoicemeeterASIO.drawio.svg)
+  There is examples of some `DAW` settings:
+
+  **FL Studio Audio Settings**
+
+  ![VoicemeeterASIOFLStudio](./assets/images/VoicemeeterASIOFLStudio.drawio.svg)
+
+  **Reaper Device Preferences**
+
+  ![VoicemeeterASIOReaper](./assets/images/VoicemeeterASIOReaper.png)
 
 #### Enabling Voicemeeter Virtual Insert Return
 Once your audio is processed with effects in the `DAW` or `VST` host, you need to send it back to Voicemeeter for the final mix.
@@ -417,25 +425,27 @@ This complete schema shows how to bypass the limitations of a simple audio inter
 Refactoring...
 
 <!-- #### Routing Overview
-The diagram illustrates a comprehensive audio signal flow, starting from hardware inputs, routing through a Digital Audio Workstation (`DAW`) and Virtual Studio Technology (`VST`) plugins for processing, and finally outputting to headphones or monitors. The key feature is the use of two separate stereo hardware inputs, allowing for simultaneous recording of multiple stereo sources like synthesizers, and then processing them independently within the `DAW`.
+The diagram illustrates a comprehensive audio signal flow, starting from hardware inputs, routing through a Digital Audio Workstation (`DAW`) and Virtual Studio Technology (`VST`) plugins for processing, and finally outputting to headphones, monitors or video chat/streaming app. The key feature is the use of two separate stereo hardware inputs, allowing for simultaneous recording of multiple stereo sources like synthesizers, microphones, etc., and then processing them independently within the `DAW`.
 
 #### Hardware Input
 The setup begins with two separate stereo inputs into an audio interface, such as the Focusrite Scarlett 4i4. The diagram labels these as "Hardware Stereo Input 1 (L/R)" and "Hardware Stereo Input 2 (L/R)."
 
-* **Input 1:** A stereo signal from a source like a hardware synthesizer is connected to this input pair.
+* **Input 1:** A stereo signal from a source like a hardware synthesizer, guitar, microphone is connected to this input pair.
 * **Input 2:** Another stereo source, perhaps a drum machine or a second synthesizer, is connected here.
 The audio interface sends these two distinct stereo signals to the `DAW`, where they are received on two separate stereo channels, labeled "Hardware Input 1" and "Hardware Input 2."
 
 #### Processing with `DAW` / `VSTs`
 Once inside the `DAW`, the signals are processed independently. The diagram shows the signal from each hardware input being sent to a dedicated mixer channel within the `DAW`.
 
-* **Mixer Channel 1:** The signal from Hardware Input 1 is routed here. It's then processed with a chain of `VST` plugins, including EQ, compressor, and reverb. The diagram also shows a `Voicemeeter` plugin, suggesting vocal-specific processing, which could be an emulation or a different type of channel strip. The processed audio is then sent to a "Voicemeeter path Left/Right."
+* **Mixer Channel 1:** The signal from Hardware Input 1 is routed here. It's then processed with a chain of `VST` plugins, including EQ, compressor, and reverb. The diagram also shows a `Voicemeeter` plugin, suggesting vocal-specific processing, which could be an emulation or a different type of channel strip. The processed audio is then sent back to a "Voicemeeter In#3 Left/Right."
 
-* **Mixer Channel 2:** The signal from Hardware Input 2 is routed here and processed with a different set of VST plugins, including EQ, compressor, and a "Cabinet simulation," indicating that this channel is likely for a guitar or bass signal. This processed audio is also sent to a "Voicemeeter path Left/Right."
+* **Mixer Channel 2:** The signal from Hardware Input 2 is routed here and processed with a different set of VST plugins, including EQ, compressor, and a "Cabinet simulation," indicating that this channel is likely for a guitar or bass signal. This processed audio is also sent to a "Voicemeeter In#4 Left/Right."
+
 The use of two separate channels and independent plugin chains allows for granular control and specific sound design for each source. The diagram also shows the output of the `DAW` being routed to a Google Meet/Zoom call, indicating this setup can be used for streaming or online collaboration.
 
 #### Return Path
-The processed audio from the `DAW` needs to be sent back to the user to be heard. This is where the return path comes in. The "Final Mix" from the DAW's main output is sent back to the audio interface. The diagram labels this as "Hardware Stereo Output (L/R)."
+The processed audio from the `DAW` needs to be sent back to the user to be heard. This is where the return path comes in. The "Final Mix" from the DAW's mixer channels is sent back to the Voicemeeter Hardware Inputs (In#3 and In#4)
+Master channel output can be optionally sent back to the Voicemeeter Hardware Input (In#5). 
 
 #### Final Mix and Output
 The final mix, now with all the processing applied, is sent from the `DAW` to the audio interface. The audio interface then routes this signal to the final listening devices:

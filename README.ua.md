@@ -362,7 +362,15 @@ Voicemeeter може приймати аудіо від п'яти окремих
 * У налаштуваннях пристрою вводу або драйвера виберіть **`Voicemeeter Virtual Input ASIO`**. Це повідомляє вашому програмному забезпеченню отримувати аудіо від Voicemeeter.
 * У вашому програмному забезпеченні переконайтеся, що вхід каналу вашого інструменту налаштований на отримання аудіо від лівого або правого каналу драйвера **`Voicemeeter Virtual Input ASIO`**.
 
-![VoicemeeterASIO](./assets/images/VoicemeeterASIO.drawio.svg)
+  Нижче надані приклади налаштуваннь для деяких `DAW`:
+
+  **FL Studio Audio Settings**
+
+  ![VoicemeeterASIOFLStudio](./assets/images/VoicemeeterASIOFLStudio.drawio.svg)
+
+  **Reaper Device Preferences**
+
+  ![VoicemeeterASIOReaper](./assets/images/VoicemeeterASIOReaper.png)
 
 #### Увімкнення Voicemeeter Virtual Insert Return
 Після обробки вашого аудіо ефектами в `DAW` або хості `VST`, вам потрібно надіслати його назад у Voicemeeter для фінального міксу.
